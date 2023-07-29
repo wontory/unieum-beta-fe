@@ -57,7 +57,7 @@ const Main = () => {
             </div>
             <img src={step.img} className="w-[170px] h-[201px]" />
             <h2 className="card-title">{step.title}</h2>
-            <p>{step.content}</p>
+            <p className="text-center">{step.content}</p>
           </Card>
         ))}
       </div>
