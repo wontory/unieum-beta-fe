@@ -61,7 +61,7 @@ const Main = () => {
           </Card>
         ))}
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center text-center">
         * 테스트를 시작하면 경품 지급을 위한 개인정보 수집을 동의한 것으로
         간주합니다.
       </div>
