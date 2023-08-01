@@ -7,6 +7,7 @@ import FileUpload from "../components/FileUpload/FileUpload";
 import MultipleChoice from "../components/Question/MultipleChoice";
 import Essay from "../components/Question/Essay";
 import ShortAnswer from "../components/Question/ShortAnswer";
+import Submit from "../components/Submit/Submit";
 
 // DUMMY_DATA
 const DUMMY_DATA = [
@@ -51,6 +52,10 @@ const step = [
   <ShortAnswer
     title="어떤 과목의 자료인가요?"
     placeholder="과목을 입력해주세요."
+  />,
+  <Submit
+    title="추첨을 위해 이메일 주소를 적어주세요!"
+    placeholder="example@example.com"
   />,
 ];
 
