@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+import { StepContextProvider } from "./stores/step-context.jsx";
+
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import App from "./App.jsx";
@@ -24,6 +26,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <StepContextProvider>
+      <RouterProvider router={router} />
+    </StepContextProvider>
   </React.StrictMode>
 );
