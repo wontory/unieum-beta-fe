@@ -7,6 +7,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import App from "./App.jsx";
 import Main from "./pages/Main.jsx";
+import FinishSurvey from "./pages/FinishSurvey.jsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
 import NotFound from "./pages/NotFound.jsx";
 
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       { path: "/", element: <Main /> },
+      { path: "/done", element: <FinishSurvey /> },
       { path: "/privacy", element: <PrivacyPolicy /> },
       { path: "/*", element: <NotFound /> },
     ],
