@@ -4,7 +4,7 @@ import StepContext from "../../stores/step-context";
 
 import Card from "../UI/Card/Card";
 
-const Essay = ({ title, placeholder, required }) => {
+const Essay = ({ title, placeholder, minInput, required }) => {
   const ctx = useContext(StepContext);
 
   const [text, setText] = useState("");
@@ -22,9 +22,9 @@ const Essay = ({ title, placeholder, required }) => {
         <button
           className="btn btn-primary"
           onClick={ctx.onClickNext}
-          disabled={required && text.length < 5}
+          disabled={required && text.length < minInput}
         >
-          다음 질문
+          다음으로
         </button>
       </div>
     </Card>
