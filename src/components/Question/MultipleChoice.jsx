@@ -10,17 +10,22 @@ const MultipleChoice = ({ title, options }) => {
   return (
     <Card align="items-center">
       <h2 className="card-title">{title}</h2>
-      <div className="flex gap-2">
+      <fieldset className="flex gap-2">
         {options.map((option, index) => (
-          <div
-            className="flex flex-col items-center gap-2 w-full"
+          <label
+            className="label cursor-pointer flex flex-col items-center gap-2 w-full"
             key={"option" + index}
           >
             <Card className="h-full">{option}</Card>
-            <input type="radio" name={"radio-" + index} className="radio" />
-          </div>
+            <input
+              type="radio"
+              name="multiplechoice"
+              className="radio"
+              value={index}
+            />
+          </label>
         ))}
-      </div>
+      </fieldset>
       <div className="card-actions justify-end">
         <button className="btn btn-primary" onClick={ctx.onClickNext}>
           셋 다 별로에요
