@@ -37,7 +37,7 @@ const MultipleChoice = ({ title, options }) => {
             className="btn btn-outline btn-primary"
             onClick={ctx.onClickNext}
           >
-            셋 다 별로에요
+            다 별로에요
           </button>
         ) : (
           <button className="btn btn-primary" onClick={ctx.onClickNext}>
