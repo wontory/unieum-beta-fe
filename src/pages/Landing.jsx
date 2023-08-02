@@ -31,7 +31,7 @@ const Landing = () => {
   const ctx = useContext(StepContext);
 
   return (
-    <div className="flex flex-col max-w-[1200px] w-full gap-6">
+    <div className="flex flex-col gap-6">
       <div className="flex justify-center">
         <div className="flex flex-col items-center text-center w-full prose">
           <div className="badge badge-primary badge-lg">

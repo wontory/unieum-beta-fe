@@ -62,7 +62,7 @@ const step = [
 const Main = () => {
   const ctx = useContext(StepContext);
 
-  return step[ctx.curStep];
+  return <div className="max-w-[1200px] w-full ">{step[ctx.curStep]}</div>;
 };
 
 export default Main;
