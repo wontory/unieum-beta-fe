@@ -7,6 +7,10 @@ const StepContext = React.createContext({
 export const StepContextProvider = ({ children }) => {
   const [curStep, setCurStep] = useState(0);
 
+  const handleInitStep = () => {
+    setCurStep(0);
+  };
+
   const handlePrevStep = () => {
     setCurStep((curStep) => curStep - 1);
   };
@@ -19,6 +23,7 @@ export const StepContextProvider = ({ children }) => {
     <StepContext.Provider
       value={{
         curStep: curStep,
+        onClickHome: handleInitStep,
         onClickPrev: handlePrevStep,
         onClickNext: handleNextStep,
       }}
