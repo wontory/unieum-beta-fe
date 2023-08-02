@@ -12,7 +12,10 @@ const MultipleChoice = ({ title, options }) => {
       <h2 className="card-title">{title}</h2>
       <div className="flex gap-2">
         {options.map((option, index) => (
-          <div className="flex flex-col items-center gap-2 w-full">
+          <div
+            className="flex flex-col items-center gap-2 w-full"
+            key={"option" + index}
+          >
             <Card className="h-full">{option}</Card>
             <input type="radio" name={"radio-" + index} className="radio" />
           </div>
