@@ -40,6 +40,7 @@ const step = [
   <Essay
     title="이전과 같이 선택하신 이유가 있다면 적어주세요!"
     placeholder="선택사항"
+    required={true}
   />,
   <MultipleChoice
     title={DUMMY_DATA[1].title}
@@ -48,6 +49,7 @@ const step = [
   <Essay
     title="이전과 같이 선택하신 이유가 있다면 적어주세요!"
     placeholder="선택사항"
+    required={true}
   />,
   <ShortAnswer
     title="어떤 과목의 자료인가요?"
