@@ -44,34 +44,41 @@ const Landing = () => {
           </div>
         </div>
       </div>
-      <h2 className="flex justify-center aggro">참여방법</h2>
-      <div className="flex justify-center">
-        <div className="flex flex-col items-center text-center w-full">
-          <p>3분이면 끝나요!</p>
-          <button className="btn btn-primary" onClick={ctx.onClickNext}>
-            테스트 시작하기
-          </button>
+
+      <div className="mockup-browser border bg-base-300">
+        <div className="mockup-browser-toolbar">
+          <div className="input">https://test.unieum.kr/참여방법</div>
         </div>
-      </div>
-      <div className="flex flex-col gap-3 md:flex-row justify-between">
-        {stepArr.map((step, index) => (
-          <Card
-            className="w-full md:flex-col md:w-100 xl:flex-row"
-            align="items-center"
-            key={"step" + index}
-          >
-            <div className="badge badge-secondary badge-lg">
-              STEP {index + 1}
+        <div className="flex flex-col justify-center px-4 py-4 gap-4 bg-base-200">
+          <div className="flex justify-center">
+            <div className="flex flex-col items-center gap-2 text-center w-full">
+              <p className="aggro">3분이면 끝나요!</p>
+              <button className="btn btn-primary" onClick={ctx.onClickNext}>
+                테스트 시작하기
+              </button>
             </div>
-            <img src={step.img} className="w-[170px] h-[201px]" />
-            <h2 className="card-title">{step.title}</h2>
-            <p className="text-center">{step.content}</p>
-          </Card>
-        ))}
-      </div>
-      <div className="flex justify-center text-center">
-        * 테스트를 시작하면 경품 지급을 위한 개인정보 수집을 동의한 것으로
-        간주합니다.
+          </div>
+          <div className="flex flex-col gap-3 md:flex-row justify-between">
+            {stepArr.map((step, index) => (
+              <Card
+                className="w-full md:flex-col md:w-100 xl:flex-row"
+                align="items-center"
+                key={"step" + index}
+              >
+                <div className="badge badge-secondary badge-lg">
+                  STEP {index + 1}
+                </div>
+                <img src={step.img} className="w-[170px] h-[201px]" />
+                <h2 className="card-title">{step.title}</h2>
+                <p className="text-center">{step.content}</p>
+              </Card>
+            ))}
+          </div>
+          <div className="flex justify-center text-center">
+            * 테스트를 시작하면 경품 지급을 위한 개인정보 수집을 동의한 것으로
+            간주합니다.
+          </div>
+        </div>
       </div>
     </div>
   );
