@@ -50,7 +50,7 @@ const Landing = () => {
         <div className="mockup-browser-toolbar">
           <div className="input">https://test.unieum.kr/참여방법</div>
         </div>
-        <div className="flex flex-col justify-center px-4 py-4 gap-4 bg-base-200">
+        <div className="flex flex-col justify-center px-4 py-4 gap-4 bg-secondary">
           <div className="flex justify-center">
             <div className="flex flex-col items-center gap-2 text-center w-full">
               <p className="aggro">3분이면 끝나요!</p>
