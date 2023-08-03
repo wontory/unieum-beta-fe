@@ -42,6 +42,7 @@ const Landing = () => {
             추첨을 통해 5명에게{" "}
             <b className="font-extrabold">허니콤보 기프티콘</b>을 드려요~
           </div>
+          <div>테스트 마감: 8월 3일 / 추첨 결과 발표 : 8월 4일</div>
         </div>
       </div>
 
