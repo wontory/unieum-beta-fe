@@ -14,7 +14,7 @@ const Submit = ({ title, placeholder }) => {
       />
       <div className="card-actions justify-end">
         <Link className="btn btn-primary" to="/done">
-          다음으로
+          제출하기
         </Link>
       </div>
     </Card>
