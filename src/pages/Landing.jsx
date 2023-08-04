@@ -38,19 +38,20 @@ const Landing = () => {
             강의자료에서 GPT로 기출문제 만들기?
           </div>
           <h1 className="my-3 aggro">유니음 베타 테스트 모집!</h1>
-          <div>
+          <div className="text-xl">
             추첨을 통해 5명에게{" "}
             <b className="font-extrabold">허니콤보 기프티콘</b>을 드려요~
           </div>
-          <div>테스트 마감: 8월 3일 / 추첨 결과 발표 : 8월 4일</div>
+          <div className="text-sm">
+            테스트 마감: 8월 3일 / 추첨 결과 발표 : 8월 4일
+          </div>
         </div>
       </div>
-
       <div className="mockup-browser border bg-base-300">
         <div className="mockup-browser-toolbar">
           <div className="input">https://test.unieum.kr/참여방법</div>
         </div>
-        <div className="flex flex-col justify-center px-4 py-4 gap-4 bg-secondary">
+        <div className="flex flex-col justify-center px-32 py-8 gap-4 bg-base-200">
           <div className="flex justify-center">
             <div className="flex flex-col items-center gap-2 text-center w-full">
               <p className="aggro">3분이면 끝나요!</p>
