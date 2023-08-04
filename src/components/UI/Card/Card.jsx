@@ -1,6 +1,6 @@
-const Card = ({ className, align, children }) => {
+const Card = ({ className, align, gap, children }) => {
   const classes = "card card-bordered bg-base-100 " + className;
-  const body_classes = "card-body p-6 " + align;
+  const body_classes = `card-body p-6 ${align} ${gap}`;
 
   return (
     <div className={classes}>
