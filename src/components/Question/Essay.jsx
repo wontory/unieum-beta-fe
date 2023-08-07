@@ -10,10 +10,10 @@ const Essay = ({ title, placeholder, minInput, required }) => {
   const [text, setText] = useState("");
 
   return (
-    <Card align="items-center">
-      <h2 className="card-title">{title}</h2>
+    <Card align="items-center" gap="gap-32">
+      <h2 className="card-title text-3xl">{title}</h2>
       <textarea
-        className="textarea textarea-bordered w-full"
+        className="textarea textarea-bordered textarea-lg w-full"
         placeholder={placeholder}
         value={text}
         onChange={(event) => setText(event.target.value)}

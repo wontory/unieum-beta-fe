@@ -10,8 +10,8 @@ const ShortAnswer = ({ title, placeholder, minInput, required }) => {
   const [text, setText] = useState("");
 
   return (
-    <Card align="items-center">
-      <h2 className="card-title">{title}</h2>
+    <Card align="items-center" gap="gap-8">
+      <h2 className="card-title text-3xl">{title}</h2>
       <input
         type="text"
         placeholder={placeholder}

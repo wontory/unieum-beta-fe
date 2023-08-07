@@ -10,8 +10,8 @@ const MultipleChoice = ({ title, options }) => {
   const [selected, setSelected] = useState(null);
 
   return (
-    <Card align="items-center">
-      <h2 className="card-title">{title}</h2>
+    <Card align="items-center" gap="gap-8">
+      <h2 className="card-title text-3xl">{title}</h2>
       <fieldset
         className="flex gap-2"
         onChange={(event) => setSelected(event.target.value)}

@@ -18,8 +18,8 @@ const FileUpload = () => {
   };
 
   return (
-    <Card align="items-center" gap="gap-8">
-      <h2 className="card-title flex-col">
+    <Card align="items-center" gap="gap-12">
+      <h2 className="card-title flex-col text-4xl">
         <img src={Upload} className="w-[78px] h-[93px]" />
         강의자료를 업로드해주세요!
       </h2>
@@ -29,14 +29,14 @@ const FileUpload = () => {
         onChange={handleChange}
         ref={fileInput}
       />
-      <p className="bg-base-200 rounded-2xl px-16 py-4 text-center">
+      <p className="bg-base-200 rounded-2xl px-24 py-4 text-center">
         스캔본, 이미지가 아닌
         <br />
         <b>텍스트가 포함된 PDF</b>만 가능합니다.
       </p>
       <div className="card-actions items-center flex-col">
         <button
-          className="btn"
+          className="btn btn-primary"
           onClick={ctx.onClickNext} // 나중에 파일 업로드하는걸로 수정
           disabled={file === undefined}
         >
