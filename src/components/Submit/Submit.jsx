@@ -4,9 +4,11 @@ import Card from "../UI/Card/Card";
 
 const Submit = ({ title, placeholder }) => {
   return (
-    <Card align="items-center">
-      <h2>이제 마지막 질문이에요!</h2>
-      <h2 className="card-title">{title}</h2>
+    <Card align="items-center" gap="gap-32">
+      <div className="flex flex-col gap-4 items-center">
+        <h2>이제 마지막 질문이에요!</h2>
+        <h2 className="card-title text-3xl">{title}</h2>
+      </div>
       <input
         type="email"
         placeholder={placeholder}
