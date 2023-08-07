@@ -52,13 +52,11 @@ const Landing = () => {
           <div className="input">https://test.unieum.kr/참여방법</div>
         </div>
         <div className="flex flex-col justify-center px-8 py-8 gap-4 bg-base-200 xl:px-32">
-          <div className="flex justify-center">
-            <div className="flex flex-col items-center gap-2 text-center w-full">
-              <p className="aggro">3분이면 끝나요!</p>
-              <button className="btn btn-primary" onClick={ctx.onClickNext}>
-                테스트 시작하기
-              </button>
-            </div>
+          <div className="flex flex-col items-center gap-2 text-center w-full">
+            <p className="aggro">3분이면 끝나요!</p>
+            <button className="btn btn-primary" onClick={ctx.onClickNext}>
+              테스트 시작하기
+            </button>
           </div>
           <div className="flex flex-col gap-3 md:flex-row justify-between">
             {stepArr.map((step, index) => (
