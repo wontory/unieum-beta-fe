@@ -18,7 +18,6 @@ const FileUpload = ({ onSavePrompt }) => {
 
   const handleChange = (event) => {
     setFile(event.target.files[0]);
-    console.log(file);
   };
 
   const handleFileUpload = async () => {
