@@ -24,7 +24,6 @@ const Main = () => {
 
   const handleSavePrompt = (generatedPrompts) => {
     setPrompt(generatedPrompts);
-    ctx.onClickNext();
   };
 
   const handleSaveAnswer = (enteredAnswer) => {

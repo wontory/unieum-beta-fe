@@ -12,6 +12,7 @@ const FileUpload = ({ onSavePrompt }) => {
   const ctx = useContext(StepContext);
 
   const [file, setFile] = useState(undefined);
+  const [isWaiting, setIsWaiting] = useState(false);
 
   const fileInput = useRef(null);
 
@@ -21,6 +22,8 @@ const FileUpload = ({ onSavePrompt }) => {
   };
 
   const handleFileUpload = async () => {
+    setIsWaiting(true);
+
     try {
       const formData = new FormData();
       formData.append("fileList", file);
@@ -31,8 +34,11 @@ const FileUpload = ({ onSavePrompt }) => {
         res.data.data.v2TestList,
         res.data.data.v3TestList,
       ]);
+
+      ctx.onClickNext();
     } catch (err) {
       alert(`문제 생성에 실패했습니다. (${err?.response?.data.message})`);
+      setIsWaiting(false);
     }
   };
 
@@ -47,6 +53,7 @@ const FileUpload = ({ onSavePrompt }) => {
         className="file-input file-input-bordered w-full max-w-xs"
         onChange={handleChange}
         ref={fileInput}
+        disabled={isWaiting === true}
       />
       <p className="bg-base-200 rounded-2xl px-24 py-4 text-center">
         스캔본, 이미지가 아닌
@@ -57,9 +64,9 @@ const FileUpload = ({ onSavePrompt }) => {
         <button
           className="btn btn-primary"
           onClick={handleFileUpload}
-          disabled={file === undefined}
+          disabled={file === undefined || isWaiting === true}
         >
-          다음으로
+          {isWaiting ? <i className="spinner icon"></i> : 다음으로}
         </button>
       </div>
     </Card>
