@@ -66,7 +66,11 @@ const FileUpload = ({ onSavePrompt }) => {
           onClick={handleFileUpload}
           disabled={file === undefined || isWaiting === true}
         >
-          {isWaiting ? <i className="spinner icon"></i> : "다음으로"}
+          {isWaiting ? (
+            <span className="loading loading-spinner loading-lg"></span>
+          ) : (
+            "다음으로"
+          )}
         </button>
       </div>
     </Card>
