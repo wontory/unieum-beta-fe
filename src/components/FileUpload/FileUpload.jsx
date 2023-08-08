@@ -8,7 +8,7 @@ import Card from "../UI/Card/Card";
 
 import Upload from "../../assets/images/upload.svg";
 
-const FileUpload = () => {
+const FileUpload = ({ onSavePrompt }) => {
   const ctx = useContext(StepContext);
 
   const [file, setFile] = useState(undefined);
@@ -26,9 +26,11 @@ const FileUpload = () => {
       formData.append("fileList", file);
 
       const res = await betaApi.post3TestGeneration(formData);
-      console.log(res.data.data);
-
-      ctx.onClickNext;
+      onSavePrompt([
+        res.data.data.v1TestList,
+        res.data.data.v2TestList,
+        res.data.data.v3TestList,
+      ]);
     } catch (err) {
       alert(`문제 생성에 실패했습니다. (${err?.response?.data.message})`);
     }
@@ -54,7 +56,7 @@ const FileUpload = () => {
       <div className="card-actions items-center flex-col">
         <button
           className="btn btn-primary"
-          onClick={handleFileUpload} // 나중에 파일 업로드하는걸로 수정
+          onClick={handleFileUpload}
           disabled={file === undefined}
         >
           다음으로

@@ -4,7 +4,7 @@ import StepContext from "../../stores/step-context";
 
 import Card from "../UI/Card/Card";
 
-const MultipleChoice = ({ title, options }) => {
+const MultipleChoice = ({ title, options, answerKey, onSaveAnswer }) => {
   const ctx = useContext(StepContext);
 
   const [selected, setSelected] = useState(null);
@@ -21,7 +21,16 @@ const MultipleChoice = ({ title, options }) => {
             className="label cursor-pointer flex flex-col items-center gap-2 w-full"
             key={"option" + index}
           >
-            <Card className="h-full">{option}</Card>
+            <Card className="w-full h-full">
+              {option.map((item) => (
+                <>
+                  Q: {item.question}
+                  <br />
+                  A: {item.answer}
+                  <br />
+                </>
+              ))}
+            </Card>
             <input
               type="radio"
               name="multiplechoice"
