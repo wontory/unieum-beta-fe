@@ -43,7 +43,7 @@ const Main = () => {
       title={surveyQuestion[1]}
       answerKey="reasonOfSelectedPromptForQ1"
       placeholder="선택사항"
-      minInput={5}
+      minInput={0}
       required={true}
       onSaveAnswer={handleSaveAnswer}
     />,
@@ -57,7 +57,7 @@ const Main = () => {
       title={surveyQuestion[3]}
       answerKey="reasonOfSelectedPromptForQ1"
       placeholder="선택사항"
-      minInput={5}
+      minInput={0}
       required={true}
       onSaveAnswer={handleSaveAnswer}
     />,
@@ -65,7 +65,7 @@ const Main = () => {
       title={surveyQuestion[4]}
       answerKey="subject"
       placeholder="과목을 입력해주세요."
-      minInput={5}
+      minInput={1}
       required={true}
       onSaveAnswer={handleSaveAnswer}
     />,
