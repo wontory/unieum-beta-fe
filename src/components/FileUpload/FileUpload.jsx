@@ -67,7 +67,10 @@ const FileUpload = ({ onSavePrompt }) => {
           disabled={file === undefined || isWaiting === true}
         >
           {isWaiting ? (
-            <span className="loading loading-spinner loading-lg"></span>
+            <>
+              <span className="loading loading-spinner"></span>
+              열심히 문제 만드는 중..!
+            </>
           ) : (
             "다음으로"
           )}
