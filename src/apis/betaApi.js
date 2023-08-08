@@ -3,7 +3,7 @@ import axios from "axios";
 const ROUTE = "beta";
 
 const betaInstance = axios.create({
-  baseURL: "https://develop.unieum.kr:4000/api/admin",
+  baseURL: "https://develop.unieum.kr:4000/api",
   headers: {
     AccessControlAllowOrigin: "*",
   },
