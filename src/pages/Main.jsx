@@ -19,25 +19,13 @@ const surveyQuestion = [
 
 const Main = () => {
   const ctx = useContext(StepContext);
-  const [prompt, setPrompt] = useState([]);
-  const [answer, setAnswer] = useState({});
-
-  const handleSavePrompt = (generatedPrompts) => {
-    setPrompt(generatedPrompts);
-  };
-
-  const handleSaveAnswer = (enteredAnswer) => {
-    setAnswer((prev) => ({ ...prev, enteredAnswer }));
-  };
 
   const step = [
     <Landing />,
-    <FileUpload onSavePrompt={handleSavePrompt} />,
+    <FileUpload />,
     <MultipleChoice
       title={surveyQuestion[0]}
-      options={prompt}
       answerKey="selectedPromptForQ1"
-      onSaveAnswer={handleSaveAnswer}
     />,
     <Essay
       title={surveyQuestion[1]}
@@ -45,13 +33,10 @@ const Main = () => {
       placeholder="선택사항"
       minInput={0}
       required={true}
-      onSaveAnswer={handleSaveAnswer}
     />,
     <MultipleChoice
       title={surveyQuestion[2]}
-      options={prompt}
       answerKey="selectedPromptForQ2"
-      onSaveAnswer={handleSaveAnswer}
     />,
     <Essay
       title={surveyQuestion[3]}
@@ -59,7 +44,6 @@ const Main = () => {
       placeholder="선택사항"
       minInput={0}
       required={true}
-      onSaveAnswer={handleSaveAnswer}
     />,
     <ShortAnswer
       title={surveyQuestion[4]}
@@ -67,12 +51,10 @@ const Main = () => {
       placeholder="과목을 입력해주세요."
       minInput={1}
       required={true}
-      onSaveAnswer={handleSaveAnswer}
     />,
     <Submit
       title="추첨을 위해 이메일 주소를 적어주세요!"
       placeholder="example@example.com"
-      answerData={answer}
     />,
   ];
 

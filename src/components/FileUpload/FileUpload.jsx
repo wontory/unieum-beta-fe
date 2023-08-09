@@ -1,6 +1,7 @@
 import { useContext, useState, useRef } from "react";
 
 import StepContext from "../../stores/step-context";
+import AnswerContext from "../../stores/answer-context";
 
 import { betaApi } from "../../apis/betaApi";
 
@@ -8,8 +9,9 @@ import Card from "../UI/Card/Card";
 
 import Upload from "../../assets/images/upload.svg";
 
-const FileUpload = ({ onSavePrompt }) => {
-  const ctx = useContext(StepContext);
+const FileUpload = () => {
+  const stepCtx = useContext(StepContext);
+  const answerCtx = useContext(AnswerContext);
 
   const [file, setFile] = useState(undefined);
   const [isWaiting, setIsWaiting] = useState(false);
@@ -28,13 +30,11 @@ const FileUpload = ({ onSavePrompt }) => {
       formData.append("fileList", file);
 
       const res = await betaApi.post3TestGeneration(formData);
-      onSavePrompt([
-        res.data.data.v1TestList,
-        res.data.data.v2TestList,
-        res.data.data.v3TestList,
-      ]);
+      answerCtx.onSaveAnswer("promptV1", res.data.data.v1TestList);
+      answerCtx.onSaveAnswer("promptV2", res.data.data.v2TestList);
+      answerCtx.onSaveAnswer("promptV3", res.data.data.v3TestList);
 
-      ctx.onClickNext();
+      stepCtx.onClickNext();
     } catch (err) {
       alert(`문제 생성에 실패했습니다. (${err?.response?.data.message})`);
       setIsWaiting(false);

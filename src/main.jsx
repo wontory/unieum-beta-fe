@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 import { StepContextProvider } from "./stores/step-context.jsx";
+import { AnswerContextProvider } from "./stores/answer-context.jsx";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
@@ -26,10 +27,16 @@ const router = createBrowserRouter([
   },
 ]);
 
+const AppProvider = ({ contexts, children }) =>
+  contexts.reduce(
+    (prev, context) => React.createElement(context, { children: prev }),
+    children
+  );
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <StepContextProvider>
+    <AppProvider contexts={[StepContextProvider, AnswerContextProvider]}>
       <RouterProvider router={router} />
-    </StepContextProvider>
+    </AppProvider>
   </React.StrictMode>
 );

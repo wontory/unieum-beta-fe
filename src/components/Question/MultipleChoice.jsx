@@ -1,13 +1,20 @@
 import { useState, useContext } from "react";
 
 import StepContext from "../../stores/step-context";
+import AnswerContext from "../../stores/answer-context";
 
 import Card from "../UI/Card/Card";
 
-const MultipleChoice = ({ title, options, answerKey, onSaveAnswer }) => {
-  const ctx = useContext(StepContext);
+const MultipleChoice = ({ title, answerKey }) => {
+  const stepCtx = useContext(StepContext);
+  const answerCtx = useContext(AnswerContext);
 
   const [selected, setSelected] = useState(null);
+  const options = [
+    AnswerContext.answers.promptV1,
+    AnswerContext.answers.promptV2,
+    AnswerContext.answers.promptV3,
+  ];
 
   return (
     <Card align="items-center" gap="gap-8">
@@ -35,7 +42,7 @@ const MultipleChoice = ({ title, options, answerKey, onSaveAnswer }) => {
               type="radio"
               name="multiplechoice"
               className="radio"
-              value={index}
+              value={`v${index + 1}`}
             />
           </label>
         ))}
@@ -44,12 +51,21 @@ const MultipleChoice = ({ title, options, answerKey, onSaveAnswer }) => {
         {selected === null ? (
           <button
             className="btn btn-outline btn-primary"
-            onClick={ctx.onClickNext}
+            onClick={() => {
+              answerCtx.onSaveAnswer(answerKey, "none");
+              stepCtx.onClickNext;
+            }}
           >
             다 별로에요
           </button>
         ) : (
-          <button className="btn btn-primary" onClick={ctx.onClickNext}>
+          <button
+            className="btn btn-primary"
+            onClick={() => {
+              answerCtx.onSaveAnswer(answerKey, selected);
+              stepCtx.onClickNext;
+            }}
+          >
             다음으로
           </button>
         )}
