@@ -9,6 +9,7 @@ export const AnswerContextProvider = ({ children }) => {
     setAnswers((prevAnswers) => {
       return { ...prevAnswers, [answerKey]: answer };
     });
+    console.log(answers);
   };
 
   return (
