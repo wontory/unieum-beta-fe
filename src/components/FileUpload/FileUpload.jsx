@@ -30,9 +30,10 @@ const FileUpload = () => {
       formData.append("fileList", file);
 
       const res = await betaApi.post3TestGeneration(formData);
-      answerCtx.onSaveAnswer("promptV1", res.data.data.v1TestList);
-      answerCtx.onSaveAnswer("promptV2", res.data.data.v2TestList);
-      answerCtx.onSaveAnswer("promptV3", res.data.data.v3TestList);
+      console.log(res);
+      answerCtx.onSaveAnswers("promptV1", res.data.data.v1TestList);
+      answerCtx.onSaveAnswers("promptV2", res.data.data.v2TestList);
+      answerCtx.onSaveAnswers("promptV3", res.data.data.v3TestList);
 
       stepCtx.onClickNext();
     } catch (err) {

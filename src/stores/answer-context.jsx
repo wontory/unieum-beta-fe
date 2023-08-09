@@ -5,10 +5,8 @@ const AnswerContext = React.createContext({ answers: {} });
 export const AnswerContextProvider = ({ children }) => {
   const [answers, setAnswers] = useState({});
 
-  const handleSaveAnswer = (answerKey, answer) => {
-    setAnswers((prevAnswers) => {
-      return { ...prevAnswers, [answerKey]: answer };
-    });
+  const handleSaveAnswers = (answerKey, answer) => {
+    setAnswers((prevAnswers) => ({ ...prevAnswers, [answerKey]: answer }));
     console.log(answers);
   };
 
@@ -16,7 +14,7 @@ export const AnswerContextProvider = ({ children }) => {
     <AnswerContext.Provider
       value={{
         answers: answers,
-        onSaveAnswer: handleSaveAnswer,
+        onSaveAnswers: handleSaveAnswers,
       }}
     >
       {children}
