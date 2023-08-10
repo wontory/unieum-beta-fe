@@ -4,17 +4,26 @@ import { useNavigate } from "react-router-dom";
 
 import AnswerContext from "../../stores/answer-context";
 
+import { betaApi } from "../../apis/betaApi";
+
 import Card from "../UI/Card/Card";
 
 const Submit = ({ title, placeholder }) => {
   const navigate = useNavigate();
-  const { onSaveAnswers } = useContext(AnswerContext);
+  const { answers, onSaveAnswers } = useContext(AnswerContext);
 
   const [email, setEmail] = useState("");
 
-  const handleSubmit = (answer) => {
+  const handleSubmit = async (answer) => {
     onSaveAnswers("email", answer);
-    navigate("/done");
+
+    try {
+      const res = await betaApi.postSurvey(answers);
+      console.log(res);
+      navigate("/done");
+    } catch (err) {
+      alert(`제출에 실패했습니다. (${err?.response?.data.message})`);
+    }
   };
 
   return (
@@ -31,12 +40,7 @@ const Submit = ({ title, placeholder }) => {
         onChange={(event) => setEmail(event.target.value)}
       />
       <div className="card-actions justify-end">
-        <button
-          className="btn btn-primary"
-          onClick={() => {
-            handleSubmit(email);
-          }}
-        >
+        <button className="btn btn-primary" onClick={() => handleSubmit(email)}>
           제출하기
         </button>
       </div>
