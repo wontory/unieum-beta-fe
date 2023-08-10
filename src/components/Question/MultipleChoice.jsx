@@ -41,12 +41,11 @@ const MultipleChoice = ({ title, answerKey }) => {
                   {item.options &&
                     item.options.map((option, index) => (
                       <>
+                        {index}. {option}
                         <br />
-                        {index + 1}. {option}
                       </>
                     ))}
-                  <br />
-                  A: {item.answer + 1}
+                  답: {item.answer}
                   <br />
                   <br />
                 </>
