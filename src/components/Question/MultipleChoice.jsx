@@ -9,11 +9,11 @@ const MultipleChoice = ({ title, answerKey }) => {
   const { onClickNext } = useContext(StepContext);
   const { answers, onSaveAnswers } = useContext(AnswerContext);
 
-  const [options, setOptions] = useState([]);
+  const [results, setResults] = useState([]);
   const [selected, setSelected] = useState(null);
 
   useEffect(() => {
-    setOptions([answers["promptV1"], answers["promptV2"], answers["promptV3"]]);
+    setResults([answers["promptV1"], answers["promptV2"], answers["promptV3"]]);
   }, []);
 
   const handleSubmit = (answer) => {
@@ -29,15 +29,22 @@ const MultipleChoice = ({ title, answerKey }) => {
         className="flex gap-2"
         onChange={(event) => setSelected(event.target.value)}
       >
-        {options.map((option, index) => (
+        {results.map((result, index) => (
           <label
             className="label cursor-pointer flex flex-col items-center gap-2 w-full"
-            key={"option" + index}
+            key={"result" + index}
           >
             <Card className="w-full h-full">
-              {option.map((item) => (
+              {result.map((item) => (
                 <>
                   Q: {item.question}
+                  {item.options &&
+                    item.options.map((option, index) => (
+                      <>
+                        <br />
+                        {index + 1}: {option}
+                      </>
+                    ))}
                   <br />
                   A: {item.answer}
                   <br />
