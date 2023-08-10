@@ -1,8 +1,22 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+
+import { useNavigate } from "react-router-dom";
+
+import AnswerContext from "../../stores/answer-context";
 
 import Card from "../UI/Card/Card";
 
 const Submit = ({ title, placeholder }) => {
+  const navigate = useNavigate();
+  const { onSaveAnswers } = useContext(AnswerContext);
+
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = (answer) => {
+    onSaveAnswers("email", answer);
+    navigate("/done");
+  };
+
   return (
     <Card align="items-center" gap="gap-32">
       <div className="flex flex-col gap-4 items-center">
@@ -13,11 +27,18 @@ const Submit = ({ title, placeholder }) => {
         type="email"
         placeholder={placeholder}
         className="input input-bordered w-full max-w-xs"
+        value={text}
+        onChange={(event) => setEmail(event.target.value)}
       />
       <div className="card-actions justify-end">
-        <Link className="btn btn-primary" to="/done">
+        <button
+          className="btn btn-primary"
+          onClick={() => {
+            handleSubmit(email);
+          }}
+        >
           제출하기
-        </Link>
+        </button>
       </div>
     </Card>
   );

@@ -1,6 +1,16 @@
+import { useEffect, useContext } from "react";
+
 import { Link } from "react-router-dom";
 
+import AnswerContext from "../../stores/answer-context";
+
 const FinishSurvey = () => {
+  const { answers } = useContext(AnswerContext);
+
+  useEffect(() => {
+    console.log(answers);
+  }, []);
+
   return (
     <div className="flex flex-col items-center prose">
       <h1 className="mb-0">참여해주셔서 감사합니다!</h1>

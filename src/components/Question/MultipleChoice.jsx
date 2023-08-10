@@ -18,7 +18,6 @@ const MultipleChoice = ({ title, answerKey }) => {
 
   const handleSubmit = (answer) => {
     onSaveAnswers(answerKey, answer);
-    console.log(answers);
     onClickNext();
   };
 
