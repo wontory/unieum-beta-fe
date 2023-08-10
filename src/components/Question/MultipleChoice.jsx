@@ -37,16 +37,17 @@ const MultipleChoice = ({ title, answerKey }) => {
             <Card className="w-full h-full">
               {result.map((item) => (
                 <>
-                  Q: {item.question}
+                  <p className="text-lg font-bold">Q: {item.question}</p>
                   {item.options &&
                     item.options.map((option, index) => (
                       <>
                         <br />
-                        {index + 1}: {option}
+                        {index + 1}. {option}
                       </>
                     ))}
                   <br />
-                  A: {item.answer}
+                  A: {item.answer + 1}
+                  <br />
                   <br />
                 </>
               ))}
