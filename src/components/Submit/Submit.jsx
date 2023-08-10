@@ -27,7 +27,7 @@ const Submit = ({ title, placeholder }) => {
         type="email"
         placeholder={placeholder}
         className="input input-bordered w-full max-w-xs"
-        value={text}
+        value={email}
         onChange={(event) => setEmail(event.target.value)}
       />
       <div className="card-actions justify-end">
