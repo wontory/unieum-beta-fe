@@ -7,7 +7,7 @@ import Card from "../UI/Card/Card";
 
 const MultipleChoice = ({ title, answerKey }) => {
   const { onClickNext } = useContext(StepContext);
-  const { answers, onSaveAnswer } = useContext(AnswerContext);
+  const { answers, onSaveAnswers } = useContext(AnswerContext);
 
   const [options, setOptions] = useState([]);
   const [selected, setSelected] = useState(null);
@@ -17,7 +17,8 @@ const MultipleChoice = ({ title, answerKey }) => {
   }, []);
 
   const handleSubmit = (answer) => {
-    onSaveAnswer(answerKey, answer);
+    onSaveAnswers(answerKey, answer);
+    console.log(answers);
     onClickNext();
   };
 
