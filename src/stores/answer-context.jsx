@@ -7,7 +7,6 @@ export const AnswerContextProvider = ({ children }) => {
 
   const handleSaveAnswers = (answerKey, answer) => {
     setAnswers((prevAnswers) => ({ ...prevAnswers, [answerKey]: answer }));
-    console.log(answers);
   };
 
   return (

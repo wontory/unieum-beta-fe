@@ -14,8 +14,12 @@ const MultipleChoice = ({ title, answerKey }) => {
 
   useEffect(() => {
     setOptions([answers["promptV1"], answers["promptV2"], answers["promptV3"]]);
-    console.log(options);
   }, []);
+
+  const handleSubmit = (answer) => {
+    onSaveAnswer(answerKey, answer);
+    onClickNext();
+  };
 
   return (
     <Card align="items-center" gap="gap-8">
@@ -52,20 +56,14 @@ const MultipleChoice = ({ title, answerKey }) => {
         {selected === null ? (
           <button
             className="btn btn-outline btn-primary"
-            onClick={() => {
-              onSaveAnswer(answerKey, "none");
-              onClickNext();
-            }}
+            onClick={() => handleSubmit("none")}
           >
             다 별로에요
           </button>
         ) : (
           <button
             className="btn btn-primary"
-            onClick={() => {
-              onSaveAnswer(answerKey, selected);
-              onClickNext();
-            }}
+            onClick={() => handleSubmit(selected)}
           >
             다음으로
           </button>
