@@ -14,6 +14,7 @@ const MultipleChoice = ({ title, answerKey }) => {
 
   useEffect(() => {
     setOptions([answers["promptV1"], answers["promptV2"], answers["promptV3"]]);
+    console.log(options);
   }, []);
 
   return (
