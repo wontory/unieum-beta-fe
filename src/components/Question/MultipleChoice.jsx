@@ -13,7 +13,11 @@ const MultipleChoice = ({ title, answerKey }) => {
   const [selected, setSelected] = useState(null);
 
   useEffect(() => {
-    setResults([answers["promptV1"], answers["promptV2"], answers["promptV3"]]);
+    setResults([
+      JSON.parse(answers["promptV1"]),
+      JSON.parse(answers["promptV2"]),
+      JSON.parse(answers["promptV3"]),
+    ]);
   }, []);
 
   const handleSubmit = (answer) => {
