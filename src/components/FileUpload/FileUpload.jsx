@@ -10,8 +10,8 @@ import Card from "../UI/Card/Card";
 import Upload from "../../assets/images/upload.svg";
 
 const FileUpload = () => {
-  const stepCtx = useContext(StepContext);
-  const answerCtx = useContext(AnswerContext);
+  const { onClickNext } = useContext(StepContext);
+  const { onSaveAnswers } = useContext(AnswerContext);
 
   const [file, setFile] = useState(undefined);
   const [isWaiting, setIsWaiting] = useState(false);
@@ -30,12 +30,11 @@ const FileUpload = () => {
       formData.append("fileList", file);
 
       const res = await betaApi.post3TestGeneration(formData);
-      console.log(res);
-      answerCtx.onSaveAnswers("promptV1", "v1");
-      answerCtx.onSaveAnswers("promptV2", "v2");
-      answerCtx.onSaveAnswers("promptV3", "v3");
+      onSaveAnswers("promptV1", res.data.data.v1TestList);
+      onSaveAnswers("promptV2", res.data.data.v2TestList);
+      onSaveAnswers("promptV3", res.data.data.v3TestList);
 
-      stepCtx.onClickNext();
+      onClickNext();
     } catch (err) {
       alert(`문제 생성에 실패했습니다. (${err?.response?.data.message})`);
       setIsWaiting(false);

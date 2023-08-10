@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 
 import StepContext from "../../stores/step-context";
 import AnswerContext from "../../stores/answer-context";
@@ -6,15 +6,15 @@ import AnswerContext from "../../stores/answer-context";
 import Card from "../UI/Card/Card";
 
 const MultipleChoice = ({ title, answerKey }) => {
-  const stepCtx = useContext(StepContext);
-  const answerCtx = useContext(AnswerContext);
+  const { onClickNext } = useContext(StepContext);
+  const { answers, onSaveAnswer } = useContext(AnswerContext);
 
+  const [options, setOptions] = useState([]);
   const [selected, setSelected] = useState(null);
-  const options = [
-    AnswerContext.answers.promptV1,
-    AnswerContext.answers.promptV2,
-    AnswerContext.answers.promptV3,
-  ];
+
+  useEffect(() => {
+    setOptions([answers["promptV1"], answers["promptV2"], answers["promptV3"]]);
+  }, []);
 
   return (
     <Card align="items-center" gap="gap-8">
@@ -52,8 +52,8 @@ const MultipleChoice = ({ title, answerKey }) => {
           <button
             className="btn btn-outline btn-primary"
             onClick={() => {
-              answerCtx.onSaveAnswer(answerKey, "none");
-              stepCtx.onClickNext;
+              onSaveAnswer(answerKey, "none");
+              onClickNext();
             }}
           >
             다 별로에요
@@ -62,8 +62,8 @@ const MultipleChoice = ({ title, answerKey }) => {
           <button
             className="btn btn-primary"
             onClick={() => {
-              answerCtx.onSaveAnswer(answerKey, selected);
-              stepCtx.onClickNext;
+              onSaveAnswer(answerKey, selected);
+              onClickNext();
             }}
           >
             다음으로
