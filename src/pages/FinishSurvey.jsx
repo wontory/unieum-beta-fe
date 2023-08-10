@@ -2,7 +2,7 @@ import { useEffect, useContext } from "react";
 
 import { Link } from "react-router-dom";
 
-import AnswerContext from "../../stores/answer-context";
+import AnswerContext from "../stores/answer-context";
 
 const FinishSurvey = () => {
   const { answers } = useContext(AnswerContext);
