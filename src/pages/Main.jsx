@@ -40,7 +40,7 @@ const Main = () => {
     />,
     <Essay
       title={surveyQuestion[3]}
-      answerKey="reasonOfSelectedPromptForQ1"
+      answerKey="reasonOfSelectedPromptForQ2"
       placeholder="선택사항"
       minInput={0}
       required={true}
