@@ -1,4 +1,4 @@
-import { useRef, useContext } from "react";
+import { useState, useContext } from "react";
 
 import { useNavigate } from "react-router-dom";
 
@@ -10,17 +10,13 @@ import Card from "../UI/Card/Card";
 
 const Submit = ({ title, placeholder }) => {
   const navigate = useNavigate();
-  const { answers, onSaveAnswers } = useContext(AnswerContext);
+  const { answers } = useContext(AnswerContext);
 
-  const email = useRef("");
+  const [email, setEmail] = useState("");
 
-  const handleSubmit = async (answer) => {
-    onSaveAnswers("email", answer);
-
-    console.log(answers);
-
+  const handleSubmit = async () => {
     try {
-      const res = await betaApi.postSurvey(answers);
+      const res = await betaApi.postSurvey({ ...answers, email: email });
       console.log(res);
       navigate("/done");
     } catch (err) {
@@ -38,13 +34,11 @@ const Submit = ({ title, placeholder }) => {
         type="email"
         placeholder={placeholder}
         className="input input-bordered w-full max-w-xs"
-        ref={email}
+        value={email}
+        onChange={(event) => setEmail(event.target.value)}
       />
       <div className="card-actions justify-end">
-        <button
-          className="btn btn-primary"
-          onClick={() => handleSubmit(email.current.value)}
-        >
+        <button className="btn btn-primary" onClick={handleSubmit}>
           제출하기
         </button>
       </div>
