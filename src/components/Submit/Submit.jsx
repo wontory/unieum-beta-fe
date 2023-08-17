@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useRef, useContext } from "react";
 
 import { useNavigate } from "react-router-dom";
 
@@ -12,10 +12,12 @@ const Submit = ({ title, placeholder }) => {
   const navigate = useNavigate();
   const { answers, onSaveAnswers } = useContext(AnswerContext);
 
-  const [email, setEmail] = useState("");
+  const email = useRef("");
 
   const handleSubmit = async (answer) => {
     onSaveAnswers("email", answer);
+
+    console.log(answers);
 
     try {
       const res = await betaApi.postSurvey(answers);
@@ -36,11 +38,13 @@ const Submit = ({ title, placeholder }) => {
         type="email"
         placeholder={placeholder}
         className="input input-bordered w-full max-w-xs"
-        value={email}
-        onChange={(event) => setEmail(event.target.value)}
+        ref={email}
       />
       <div className="card-actions justify-end">
-        <button className="btn btn-primary" onClick={() => handleSubmit(email)}>
+        <button
+          className="btn btn-primary"
+          onClick={() => handleSubmit(email.current.value)}
+        >
           제출하기
         </button>
       </div>
