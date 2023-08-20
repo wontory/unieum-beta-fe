@@ -43,7 +43,7 @@ const Landing = () => {
             <b className="font-extrabold">허니콤보 기프티콘</b>을 드려요~
           </div>
           <div className="text-sm">
-            테스트 마감: 8월 3일 / 추첨 결과 발표 : 8월 4일
+            테스트 마감: 8월 26일 / 추첨 결과 발표 : 8월 28일
           </div>
         </div>
       </div>
